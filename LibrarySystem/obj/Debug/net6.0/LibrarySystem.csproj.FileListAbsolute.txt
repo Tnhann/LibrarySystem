@@ -138,3 +138,4 @@ C:\Users\mahir\OneDrive\Masaüstü\emel_proje\LibrarySystem\obj\Debug\net6.0\ref
 C:\Users\mahir\OneDrive\Masaüstü\emel_proje\LibrarySystem\obj\Debug\net6.0\LibrarySystem.pdb
 C:\Users\mahir\OneDrive\Masaüstü\emel_proje\LibrarySystem\obj\Debug\net6.0\LibrarySystem.genruntimeconfig.cache
 C:\Users\mahir\OneDrive\Masaüstü\emel_proje\LibrarySystem\obj\Debug\net6.0\ref\LibrarySystem.dll
+C:\Users\mahir\OneDrive\Masaüstü\emel_proje\LibrarySystem\obj\Debug\net6.0\LibrarySystem.sourcelink.json
