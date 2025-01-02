@@ -1,11 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.edge.service import Service as EdgeService
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
-from webdriver_manager.microsoft import EdgeChromiumDriverManager
 import logging
 import os
 from datetime import datetime
@@ -22,15 +18,19 @@ def setup_logging():
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
-@pytest.fixture(params=["chrome"])  # Başlangıçta sadece Chrome ile test edelim
+@pytest.fixture(params=["chrome"])
 def browser(request):
     setup_logging()
     browser = None
     
     if request.param == "chrome":
-        chrome_options = webdriver.ChromeOptions()
-        service = ChromeService(ChromeDriverManager().install())
-        browser = webdriver.Chrome(service=service, options=chrome_options)
+        options = webdriver.ChromeOptions()
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        # options.add_argument("--headless")  # Headless modu kapalı
+        
+        service = ChromeService()
+        browser = webdriver.Chrome(service=service, options=options)
     
     browser.implicitly_wait(10)
     browser.maximize_window()
