@@ -1,0 +1,145 @@
+@model IEnumerable<Book>
+
+<div class="card shadow">
+    <div class="card-header bg-primary bg-gradient text-white d-flex justify-content-between align-items-center py-2">
+        <h2 class="h5 mb-0">
+            <i class="fas fa-book me-2"></i>Kitap Yönetimi
+        </h2>
+        <a asp-action="Create" class="btn btn-sm btn-light">
+            <i class="fas fa-plus me-1"></i>Yeni Kitap
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- Arama Formu -->
+        <form asp-action="Index" method="get" class="mb-4">
+            <div class="row g-2 align-items-center">
+                <div class="col-md-4">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-light">
+                            <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" name="searchString" class="form-control" 
+                               placeholder="Kitap adı, yazar veya ISBN ara..."
+                               value="@ViewData["CurrentFilter"]" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <select name="categoryId" class="form-select form-select-sm" 
+                            asp-items="@(new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"))">
+                        <option value="">-- Tüm Kategoriler --</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select name="availability" class="form-select form-select-sm">
+                        <option value="">-- Tüm Durumlar --</option>
+                        <option value="true">Mevcut</option>
+                        <option value="false">Ödünç Verilmiş</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex gap-2">
+                    <button type="submit" class="btn btn-sm btn-primary flex-grow-1">
+                        <i class="fas fa-search me-1"></i>Ara
+                    </button>
+                    <a asp-action="Index" class="btn btn-sm btn-secondary" title="Filtreleri Temizle">
+                        <i class="fas fa-undo"></i>
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <!-- Tablo -->
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr class="text-nowrap">
+                        <th style="width: 12%">ISBN</th>
+                        <th style="width: 25%">Kitap Adı</th>
+                        <th style="width: 20%">Yazar</th>
+                        <th style="width: 15%">Yayınevi</th>
+                        <th style="width: 12%">Kategori</th>
+                        <th style="width: 8%">Durum</th>
+                        <th style="width: 8%" class="text-end">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody class="small">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-muted">@item.ISBN</td>
+                            <td class="fw-medium">@item.Title</td>
+                            <td>@item.Author</td>
+                            <td class="text-muted">@item.Publisher</td>
+                            <td>
+                                <span class="badge rounded-pill bg-light text-dark border">
+                                    @item.Category?.CategoryName
+                                </span>
+                            </td>
+                            <td>
+                                @if (item.Available)
+                                {
+                                    <span class="badge bg-success bg-opacity-75">Mevcut</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark bg-opacity-75">Ödünç</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <div class="btn-group btn-group-sm">
+                                    <a asp-action="Edit" asp-route-id="@item.BookID" 
+                                       class="btn btn-outline-primary" title="Düzenle">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    @if (item.Available)
+                                    {
+                                        <a asp-action="Delete" asp-route-id="@item.BookID" 
+                                           class="btn btn-outline-danger" title="Sil">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="text-center text-muted my-5">
+                <i class="fas fa-search fa-2x mb-3"></i>
+                <p class="mb-0">Arama kriterlerine uygun kitap bulunamadı.</p>
+            </div>
+        }
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .table th { 
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .table td { 
+            vertical-align: middle;
+            font-size: 0.875rem;
+        }
+        .btn-group-sm > .btn { 
+            padding: .25rem .5rem;
+        }
+        .badge {
+            font-weight: 500;
+        }
+        .input-group-text {
+            border-right: 0;
+        }
+        .input-group .form-control {
+            border-left: 0;
+        }
+        .input-group .form-control:focus {
+            border-color: #dee2e6;
+            box-shadow: none;
+        }
+    </style>
+} 

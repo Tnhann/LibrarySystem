@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="row justify-content-center mb-5">
+    <div class="col-md-8 text-center">
+        <h1 class="display-4 mb-4" style="color: #0d6efd; font-weight: 600;">
+            Kütüphane Yönetim Sistemine Hoş Geldiniz
+        </h1>
+        <p class="lead text-muted">
+            Kitaplarınızı kolayca yönetin, takip edin ve organize edin.
+        </p>
+    </div>
+</div>
+
+@if (Context.Session.GetString("IsLoggedIn") == "true")
+{
+    <div class="row">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <i class="fas fa-book"></i>
+                <h3>@ViewBag.TotalBooks</h3>
+                <p class="text-muted">Toplam Kitap</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="border-left-color: #198754;">
+                <i class="fas fa-check-circle" style="color: #198754;"></i>
+                <h3>@ViewBag.AvailableBooks</h3>
+                <p class="text-muted">Mevcut Kitap</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="border-left-color: #dc3545;">
+                <i class="fas fa-clock" style="color: #dc3545;"></i>
+                <h3>@ViewBag.LoanedBooks</h3>
+                <p class="text-muted">Ödünç Verilen</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card" style="border-left-color: #6f42c1;">
+                <i class="fas fa-tags" style="color: #6f42c1;"></i>
+                <h3>@ViewBag.Categories</h3>
+                <p class="text-muted">Kategori</p>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-body p-5">
+                    <i class="fas fa-lock fa-3x mb-3" style="color: #0d6efd;"></i>
+                    <h2>Giriş Yapın</h2>
+                    <p class="text-muted">Sistemi kullanmak için lütfen giriş yapın.</p>
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg">
+                        <i class="fas fa-sign-in-alt me-2"></i> Giriş Yap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+} 

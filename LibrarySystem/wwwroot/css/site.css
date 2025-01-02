@@ -1,0 +1,146 @@
+html {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin-bottom: 60px;
+}
+
+.navbar {
+  background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,.1);
+}
+
+.card-header {
+  border-radius: 15px 15px 0 0 !important;
+  background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+  color: white;
+  padding: 1.5rem;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+}
+
+.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.footer {
+  background: linear-gradient(135deg, #0d6efd 0%, #0099ff 100%);
+  color: white !important;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.fade-in {
+  -webkit-animation: fadeIn 0.5s ease-in;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@-webkit-keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #0d6efd;
+}
+
+.stat-card i {
+  font-size: 2rem;
+  color: #0d6efd;
+}
+
+.stat-card h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
+.form-control, .form-select {
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #dee2e6;
+}
+
+.form-control:focus, .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13,110,253,.15);
+} 

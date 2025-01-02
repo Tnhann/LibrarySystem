@@ -1,0 +1,45 @@
+@model Loan
+
+<div class="card shadow">
+    <div class="card-header bg-primary bg-gradient text-white">
+        <h2 class="h5 mb-0">
+            <i class="fas fa-book-reader me-2"></i>Kitap Ödünç Ver
+        </h2>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <label asp-for="BookID" class="form-label">Kitap *</label>
+                    <select asp-for="BookID" class="form-select"
+                            asp-items="@((SelectList)ViewBag.Books)" required>
+                        <option value="">-- Kitap Seçin --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="LoanDate" class="form-label">Ödünç Alma Tarihi</label>
+                    <input asp-for="LoanDate" class="form-control" type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DueDate" class="form-label">Teslim Tarihi *</label>
+                    <input asp-for="DueDate" class="form-control" type="date" 
+                           value="@DateTime.Now.AddMonths(1).ToString("yyyy-MM-dd")" required />
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-1"></i> Ödünç Ver
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-arrow-left me-1"></i> Listeye Dön
+                </a>
+            </div>
+        </form>
+    </div>
+</div> 

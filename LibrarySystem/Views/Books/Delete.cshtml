@@ -1,0 +1,55 @@
+@model Book
+
+<div class="card shadow">
+    <div class="card-header bg-danger text-white">
+        <h2 class="h4 mb-0">Kitap Silme Onayı</h2>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            Bu kitabı silmek istediğinizden emin misiniz?
+        </div>
+
+        <dl class="row">
+            <dt class="col-sm-3">Kitap Adı</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">Yazar</dt>
+            <dd class="col-sm-9">@Model.Author</dd>
+
+            <dt class="col-sm-3">ISBN</dt>
+            <dd class="col-sm-9">@Model.ISBN</dd>
+
+            <dt class="col-sm-3">Kategori</dt>
+            <dd class="col-sm-9">@Model.Category?.CategoryName</dd>
+
+            <dt class="col-sm-3">Yayın Yılı</dt>
+            <dd class="col-sm-9">@Model.PublishYear</dd>
+
+            <dt class="col-sm-3">Yayınevi</dt>
+            <dd class="col-sm-9">@Model.Publisher</dd>
+
+            <dt class="col-sm-3">Durum</dt>
+            <dd class="col-sm-9">
+                @if (Model.Available)
+                {
+                    <span class="badge bg-success">Mevcut</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning text-dark">Ödünç Verildi</span>
+                }
+            </dd>
+        </dl>
+
+        <form asp-action="Delete" class="mt-3">
+            <input type="hidden" asp-for="BookID" />
+            <button type="submit" class="btn btn-danger">
+                <i class="fas fa-trash"></i> Sil
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Listeye Dön
+            </a>
+        </form>
+    </div>
+</div> 

@@ -1,0 +1,65 @@
+@model IEnumerable<Loan>
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+        <h2 class="h4 mb-0">Ödünç Alma İşlemleri</h2>
+        <a asp-action="Create" class="btn btn-light">
+            <i class="fas fa-plus"></i> Yeni Ödünç Verme
+        </a>
+    </div>
+    <div class="card-body">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Kitap</th>
+                        <th>Ödünç Alma Tarihi</th>
+                        <th>Teslim Tarihi</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Book?.Title</td>
+                            <td>@item.LoanDate.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@item.DueDate.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                @if (item.ReturnDate.HasValue)
+                                {
+                                    <span class="badge bg-success">İade Edildi</span>
+                                }
+                                else if (item.IsOverdue)
+                                {
+                                    <span class="badge bg-danger">Gecikmiş</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning text-dark">Ödünç Verildi</span>
+                                }
+                            </td>
+                            <td>
+                                @if (!item.ReturnDate.HasValue)
+                                {
+                                    <a asp-action="Return" asp-route-id="@item.LoanID" class="btn btn-sm btn-success">
+                                        <i class="fas fa-undo"></i> İade Al
+                                    </a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

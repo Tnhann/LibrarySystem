@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "VC1yI1zGE4uTsV3W+j4ybCVoSk6q33ZFelcmu3Hs5k4=",
+  "Source": "LibrarySystem",
+  "BasePath": "_content/LibrarySystem",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LibrarySystem\\wwwroot",
+      "Source": "LibrarySystem",
+      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\wwwroot\\",
+      "BasePath": "_content/LibrarySystem",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\wwwroot\\css\\site.css",
+      "SourceId": "LibrarySystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\wwwroot\\",
+      "BasePath": "_content/LibrarySystem",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "78theionzv",
+      "Integrity": "N0TjAP4o+rIJGcWwvgOaq5irPyzIRwvKNpF1W0y6MAs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.78theionzv.css",
+      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2375"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N0TjAP4o+rIJGcWwvgOaq5irPyzIRwvKNpF1W0y6MAs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Jan 2025 17:38:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "78theionzv"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-N0TjAP4o+rIJGcWwvgOaq5irPyzIRwvKNpF1W0y6MAs="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2375"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"N0TjAP4o+rIJGcWwvgOaq5irPyzIRwvKNpF1W0y6MAs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 02 Jan 2025 17:38:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-N0TjAP4o+rIJGcWwvgOaq5irPyzIRwvKNpF1W0y6MAs="
+        }
+      ]
+    }
+  ]
+}
