@@ -29,7 +29,6 @@ def browser(request):
     
     if request.param == "chrome":
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument('--headless')
         service = ChromeService(ChromeDriverManager().install())
         browser = webdriver.Chrome(service=service, options=chrome_options)
     
