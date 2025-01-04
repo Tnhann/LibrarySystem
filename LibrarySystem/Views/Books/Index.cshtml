@@ -86,6 +86,10 @@
                             </td>
                             <td class="text-end">
                                 <div class="btn-group btn-group-sm">
+                                    <a asp-action="Details" asp-route-id="@item.BookID" 
+                                       class="btn btn-outline-info" title="Detay">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
                                     <a asp-action="Edit" asp-route-id="@item.BookID" 
                                        class="btn btn-outline-primary" title="Düzenle">
                                         <i class="fas fa-edit"></i>

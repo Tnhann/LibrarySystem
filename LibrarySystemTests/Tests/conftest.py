@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
 import logging
@@ -10,7 +10,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
-# Logging yapılandırması
 def setup_logging():
     log_directory = "test_logs"
     if not os.path.exists(log_directory):
@@ -25,15 +24,36 @@ def setup_logging():
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
-# Browser fixture'ları
-@pytest.fixture
-def driver():
-    chrome_options = Options()
-    driver = webdriver.Chrome(service=webdriver.ChromeService(ChromeDriverManager().install()), 
-                            options=chrome_options)
-    driver.implicitly_wait(10)
-    setup_logging()
-    logging.info("Starting test with Chrome browser")
+@pytest.fixture(params=["chrome"])  # İsterseniz "firefox", "edge" ekleyebilirsiniz
+def driver(request):
+    browser = request.param
+    driver = None
+    
+    try:
+        if browser == "chrome":
+            options = ChromeOptions()
+            # Test görünürlüğü için headless modu kapalı tutuyoruz
+            driver = webdriver.Chrome(service=webdriver.ChromeService(ChromeDriverManager().install()), 
+                                   options=options)
+        elif browser == "firefox":
+            options = FirefoxOptions()
+            driver = webdriver.Firefox(service=webdriver.FirefoxService(GeckoDriverManager().install()),
+                                    options=options)
+        elif browser == "edge":
+            options = EdgeOptions()
+            driver = webdriver.Edge(service=webdriver.EdgeService(EdgeChromiumDriverManager().install()),
+                                  options=options)
+        
+        if driver:
+            driver.maximize_window()
+            driver.implicitly_wait(10)
+            logging.info(f"Starting test with {browser} browser")
+            
+    except Exception as e:
+        logging.error(f"Failed to initialize {browser}: {str(e)}")
+        raise
     
     yield driver
-    driver.quit() 
+    
+    if driver:
+        driver.quit() 

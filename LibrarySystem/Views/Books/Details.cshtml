@@ -1,0 +1,67 @@
+@model Book
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">Kitap Detayları</h5>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Kitap Adı</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">Yazar</dt>
+            <dd class="col-sm-9">@Model.Author</dd>
+
+            <dt class="col-sm-3">ISBN</dt>
+            <dd class="col-sm-9">@Model.ISBN</dd>
+
+            <dt class="col-sm-3">Yayın Yılı</dt>
+            <dd class="col-sm-9">@Model.PublishYear</dd>
+
+            <dt class="col-sm-3">Yayınevi</dt>
+            <dd class="col-sm-9">@Model.Publisher</dd>
+
+            <dt class="col-sm-3">Kategori</dt>
+            <dd class="col-sm-9">@Model.Category?.CategoryName</dd>
+        </dl>
+    </div>
+</div>
+
+<!-- Kitap önizleme için iframe -->
+<div class="card mt-3">
+    <div class="card-header">
+        <h5 class="mb-0">Kitap Önizleme</h5>
+    </div>
+    <div class="card-body">
+        <iframe id="bookPreview" 
+                class="w-100"
+                style="height: 400px;"
+                src="@($"https://books.google.com/books?vid=ISBN{Model.ISBN}")"
+                frameborder="0">
+        </iframe>
+    </div>
+</div>
+
+<!-- Yeni pencerede açılacak büyük görsel -->
+<div class="card mt-3">
+    <div class="card-header">
+        <h5 class="mb-0">Kitap Görseli</h5>
+    </div>
+    <div class="card-body text-center">
+        <a href="@Url.Action("Image", "Books", new { id = Model.BookID })" 
+           target="_blank" 
+           id="openNewWindow"
+           class="btn btn-primary">
+            <i class="fas fa-image"></i> Büyük Görsel
+        </a>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.BookID" class="btn btn-warning">
+        <i class="fas fa-edit"></i> Düzenle
+    </a>
+    <a asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i> Listeye Dön
+    </a>
+</div> 
