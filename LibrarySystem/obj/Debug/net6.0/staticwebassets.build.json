@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xXmXI/5MhbwL4WqmRlFGOu6cVNgUPGlcuAf1q9x2/o0=",
+  "Hash": "7fY/eMdRc80CQMSNYRtBxTHcFhW0akM7RL0U3n6UZ4M=",
   "Source": "LibrarySystem",
   "BasePath": "_content/LibrarySystem",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "LibrarySystem\\wwwroot",
       "Source": "LibrarySystem",
-      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\wwwroot\\",
       "BasePath": "_content/LibrarySystem",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
       "SourceId": "LibrarySystem",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\wwwroot\\",
       "BasePath": "_content/LibrarySystem",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -41,7 +41,7 @@
   "Endpoints": [
     {
       "Route": "css/site.78theionzv.css",
-      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -86,7 +86,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {

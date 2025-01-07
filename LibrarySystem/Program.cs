@@ -4,6 +4,9 @@ using LibrarySystem.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Port ayarını ekleyelim
+builder.WebHost.UseUrls("http://localhost:5000");
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

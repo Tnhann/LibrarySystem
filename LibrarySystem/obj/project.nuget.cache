@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KI5CnXGUFSM=",
+  "dgSpecHash": "PWefZG8FaK4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\emel_proje\\LibrarySystem\\LibrarySystem.csproj",
+  "projectFilePath": "C:\\Users\\mahir\\OneDrive\\Masaüstü\\projeler\\emel_proje\\LibrarySystem\\LibrarySystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mahir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mahir\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

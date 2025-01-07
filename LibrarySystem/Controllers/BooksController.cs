@@ -277,5 +277,17 @@ namespace LibrarySystem.Controllers
         {
             return _context.Books.Any(e => e.BookID == id);
         }
+
+        public IActionResult Image(int id)
+        {
+            var book = _context.Books.Find(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+            
+            // Örnek bir resim döndür
+            return File("~/images/book-placeholder.jpg", "image/jpeg");
+        }
     }
 } 

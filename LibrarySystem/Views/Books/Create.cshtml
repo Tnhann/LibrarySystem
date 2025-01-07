@@ -55,6 +55,20 @@
             </div>
 
             <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Kitap Durumu</label>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="statusNew" name="BookStatus" value="new" checked>
+                        <label class="form-check-label" for="statusNew">Yeni</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" id="statusUsed" name="BookStatus" value="used">
+                        <label class="form-check-label" for="statusUsed">İkinci El</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="col-12 mb-3">
                     <label asp-for="Publisher" class="form-label">Yayınevi</label>
                     <input asp-for="Publisher" class="form-control" />
